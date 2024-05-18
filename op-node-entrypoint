@@ -6,10 +6,9 @@ if [[ -z "$OP_NODE_NETWORK" ]]; then
   exit 1
 fi
 
-
 ADDITIONAL_ARGS=""
-if [ "${OP_NODE_L1_BLOB_ARCHIVER+x}" = x ]; then
-    ADDITIONAL_ARGS="$ADDITIONAL_ARGS --l1.beacon-archiver=$OP_NODE_L1_BLOB_ARCHIVER"
+if [ "${OP_NODE_L1_BEACON_ARCHIVER+x}" = x ]; then
+    ADDITIONAL_ARGS="$ADDITIONAL_ARGS --l1.beacon-archiver=$OP_NODE_L1_BEACON_ARCHIVER"
 fi
 
 # wait until local geth comes up (authed so will return 401 without token)
