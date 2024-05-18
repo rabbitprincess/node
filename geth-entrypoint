@@ -38,6 +38,10 @@ if [ "${OP_GETH_BOOTNODES+x}" = x ]; then
     ADDITIONAL_ARGS="$ADDITIONAL_ARGS --bootnodes=$OP_GETH_BOOTNODES"
 fi
 
+if [ "${OP_GETH_BLOB_ARCHIVER_HTTP+x}" = x ]; then
+    ADDITIONAL_ARGS="$ADDITIONAL_ARGS --l1.beacon-archiver=$OP_GETH_BLOB_ARCHIVER_HTTP"
+fi
+
 exec ./geth \
     --datadir="$GETH_DATA_DIR" \
     --verbosity="$VERBOSITY" \
